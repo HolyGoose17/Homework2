@@ -1,0 +1,97 @@
+.beauty-rotate{
+        width: 900px;
+        height: 500px;
+        border: 4px double #bd6c46;
+        overflow: hidden;
+        -webkit-transition: all 1.5s ease;
+                transition: all 1.5s ease;
+} 
+.beauty-rotate:hover{
+        border-radius: 50%;
+        -webkit-transform: rotate(360%);
+                transform: rotate(360%);
+}
+
+  .mask{
+        --uiMaskClipPath: var(--maskClipPath);
+        box-sizing: var(--maskBoxSizing, border-box);
+        display: var(--maskDisplay, inline-flex);
+        padding: var(--maskStrokeThickness, 3px);
+        clip-path: var(--uiMaskClipPath);
+        background-color: var(--maskStrokeColor, currentColor);
+        --maskStrokeColor: #ab7445;
+        --maskStrokeThickness: 5px;
+ }
+
+ .mask-img{
+        max-width: 100%;
+        display: block;
+        clip-path: var(--uiMaskClipPath)
+ }
+
+ .mask,
+ .mask-img{
+        transition: clip-path var(--maskAnimationDuration, .2s) var(--maskAnimationTimingFunction, ease-in-out);
+ }
+
+ .mask-two{
+        --maskClipPath: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+ }
+
+ .mask-two-frame{
+        --maskAnimationDuration: .4s;
+ }
+
+ .mask-two:hover,
+ .mask-two:focus{
+        --maskClipPath: polygon(100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 0% 0%)
+ }
+
+ /* Блок картинки */
+.rotate-block {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Изображение */
+      .change-img {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        perspective: 1000px;
+        border: 1px solid #d68360; /* Рамка */
+      }
+      .change-img:hover .front-side-img {
+        transform: rotateY(180deg);
+      }
+      .change-img:hover .back-side-img {
+        transform: rotateY(360deg);
+      }
+      /* Стороны изображения */
+      .front-side-img, .back-side-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 1s;
+        back-side-imgface-visibility: hidden;
+       }
+      .front-side-img img {
+        max-width: 100%;
+        min-width: 100%;
+        height: auto;
+      }
+      .back-side-img img {
+        max-width: 100%;
+        min-width: 100%;
+        height: auto;
+        transform: scaleX(-1);/* Отражаем изображение по горизонтали */
+      }
+      .back-side-img {
+        transform: rotateY(180deg);
+      }
+        
